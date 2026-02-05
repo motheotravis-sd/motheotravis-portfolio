@@ -28,7 +28,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-const sections = document.querySelectorAll('section:not(.hero)');
 
 
 // Initialize scroll animations when DOM is loaded
@@ -36,9 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animate sections on scroll
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
-    section.style.opacity = '1'; // default visible
-    section.style.transform = 'none';
-
     observer.observe(section);
 });
 

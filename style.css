@@ -293,6 +293,11 @@ section:nth-of-type{
     background: white;
 }
 
+section:not(.hero) {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
 .section-title {
     text-align: center;
     font-size: 2.5rem;
@@ -335,6 +340,89 @@ section:nth-of-type{
     color: white;
     margin: 0 auto;
 }
+
+/* Tech Orbit Animation */
+.tech-orbit {
+    position: relative;
+    overflow: visible;
+}
+
+/* Center icon */
+.center-icon {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    z-index: 2;
+}
+
+/* Orbit rings */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin: -100px;
+    border-radius: 50%;
+    animation: rotate 12s linear infinite;
+}
+
+.orbit i {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px;
+    border-radius: 50%;
+    backdrop-filter: blur(6px);
+}
+
+/* Different orbit speeds */
+.orbit-2 {
+    width: 240px;
+    height: 240px;
+    margin: -120px;
+    animation-duration: 16s;
+}
+
+.orbit-3 {
+    width: 280px;
+    height: 280px;
+    margin: -140px;
+    animation-duration: 20s;
+}
+
+/* Rotation */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.tech-orbit:hover .orbit {
+    animation-play-state: paused;
+}
+
+.tech-orbit:hover .center-icon {
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
+}
+
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
 
 .about-text h3 {
     font-size: 1.8rem;
