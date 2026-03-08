@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,13 +17,198 @@ button:focus {
     box-shadow: none;
     transform: none;
 }
-
+/*
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: #f4f4f4;
+    
+}*/
+/* Default Light Mode */
+body {
+  
+  color: #2c3e50;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #ffffff;
 }
+
+/* Dark Mode Global */
+body.dark-mode {
+  background: #1e1e1e;
+  color: #f1f1f1;
+}
+
+/* Override sections that had fixed light backgrounds */
+body.dark-mode .experience-item,
+body.dark-mode .project-card,
+body.dark-mode .cert-card {
+  background: #000000;   /* dark card background */
+  color: #ddd;           /* lighter text */
+  border-left: 4px solid #764ba2; /* keep accent */
+}
+
+body.dark-mode .hero {
+  background: linear-gradient(135deg, #000000 0%, #000000 100%);
+  color: #f1f1f1;
+}
+
+body.dark-mode nav {
+  background: #000000;
+}
+
+
+
+body.dark-mode .section-title {
+  color: #f1f1f1;
+}
+
+/* Dark mode for About section */
+body.dark-mode #about {
+  background: #000000;   /* dark background */
+  color: #f1f1f1;        /* light text */
+}
+
+body.dark-mode #about .section-title {
+  color: #f1f1f1;
+}
+
+body.dark-mode #about .about-text h3 {
+  color: #f1f1f1;
+}
+
+body.dark-mode #about .about-text p {
+  color: #ddd;           /* softer text color */
+}
+
+body.dark-mode #about .about-image .center-icon,
+body.dark-mode #about .about-image .orbit i {
+  color: #f1f1f1;        /* make icons visible on dark background */
+}
+/* Dark mode for Experience & Certifications section */
+body.dark-mode #experience,
+body.dark-mode #certifications {
+  background: #000000;   /* full black background */
+  color: #f1f1f1;        /* light text */
+}
+
+body.dark-mode #experience .container,
+body.dark-mode #certifications .container {
+  background: #000000;   /* ensure container matches */
+}
+
+/* Dark mode for individual cards */
+body.dark-mode .experience-item {
+  background: #2a2a2a;   /* dark card background */
+  color: #ddd;
+  border-left: 4px solid #764ba2; /* keep accent */
+}
+
+/* Titles and text inside cards */
+body.dark-mode .experience-title h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .experience-title p {
+  color: #a78bfa;
+}
+
+body.dark-mode .experience-date {
+  color: #cccccc;
+}
+
+body.dark-mode .experience-item ul,
+body.dark-mode .experience-item li {
+  color: #ccc;
+}
+
+/* Dark mode for Projects section */
+body.dark-mode #projects {
+  background: #000000;   /* full black background */
+  color: #f1f1f1;
+}
+
+body.dark-mode #projects .container {
+  background: #000000;   /* ensure container matches About section */
+}
+
+body.dark-mode .project-card {
+  background: #2a2a2a;   /* dark card background */
+  color: #ddd;
+  border-left: 4px solid #764ba2; /* keep accent consistent */
+}
+
+body.dark-mode .project-card h3 {
+  color: #ffffff; /* project titles white */
+}
+
+body.dark-mode .project-card p {
+  color: #ccc; /* softer text */
+}
+
+body.dark-mode .project-tags .tag {
+  background: #444; /* darker tag background */
+  color: #eee;      /* lighter text */
+}
+
+body.dark-mode .project-links .project-btn {
+  background: #667eea; /* keep accent buttons */
+  color: #fff;
+}
+
+body.dark-mode .project-links .project-btn:hover {
+  background: #5a67d8;
+}
+
+/* Dark mode for Skills section */
+body.dark-mode #skills {
+  background: #000000;   /* full black background */
+  color: #ffffff;
+}
+
+body.dark-mode #skills .container {
+  background: #000000;   /* ensure container matches */
+}
+
+body.dark-mode #skills .section-title {
+  color: #ffffff;
+}
+
+/* Grid styling */
+body.dark-mode .skills-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  background: #000000;   /* remove white gaps */
+  border-top: 1px solid #444;
+  border-left: 1px solid #444;
+}
+
+/* Each skill category */
+body.dark-mode .skill-category {
+  background: #000000;   /* no card background, pure black */
+  color: #ffffff;
+  border-right: 1px solid #444; /* grid lines */
+  border-bottom: 1px solid #444;
+  padding: 1rem;
+}
+
+body.dark-mode .skill-category h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .skill-category ul li {
+  color: #ffffff;
+}
+
+.theme-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+
 
 .container {
     max-width: 1200px;
@@ -63,6 +252,8 @@ nav a {
 
 nav a:hover {
     color: #3498db;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 3px;
 }
 
 /* Hero Section */
@@ -112,6 +303,7 @@ nav a:hover {
 }
 
 .hero .cta-buttons {
+    background-color: transparent
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
@@ -282,6 +474,11 @@ nav a:hover {
     margin-bottom: 1rem;
     border: 4px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease;
+}
+
+.hero-profile:hover {
+    transform: scale(1.05);
 }
 
 /* Sections */
@@ -289,7 +486,7 @@ section {
     padding: 80px 0;
 }
 
-section:nth-of-type{
+section:nth-of-type(even){
     background: white;
 }
 
@@ -437,13 +634,14 @@ section:not(.hero) {
 
 /* Skills Section */
 .skills-grid {
+    background-color: #ffffff;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
 .skill-category {
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -474,7 +672,7 @@ section:not(.hero) {
     border-bottom: none;
 }
 
-/* Experience Section */
+/* Experience Section */ /*reused for Certifications*/
 .experience-item {
     background: white;
     padding: 2rem;
@@ -532,7 +730,8 @@ section:not(.hero) {
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .project-image {
@@ -574,6 +773,45 @@ section:not(.hero) {
     font-size: 0.85rem;
 }
 
+.project-links {
+    margin-top: 15px;
+}
+
+.project-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    margin-right: 10px;
+    background: #667eea;
+    color: white;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.project-btn:hover {
+    background: #4c5fd7;
+    transform: translateY(-2px);
+}
+
+/* Certifications Section */
+.cert-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 7px 14px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.cert-btn:hover {
+    background: #4c5fd7;
+}
+
+
 /* Contact Section */
 .contact-content {
     text-align: center;
@@ -603,6 +841,71 @@ section:not(.hero) {
 
 .contact-item a:hover {
     text-decoration: underline;
+}
+
+.contact-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Light mode */
+body:not(.dark-mode) .contact-form input,
+body:not(.dark-mode) .contact-form textarea {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Dark mode */
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+body.dark-mode .contact-form label {
+  color: #ffffff;
+}
+
+/* Contact form button styled like View Certificate */
+.contact-form .send-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #667eea, #764ba2); /* same gradient as certificate button */
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+/* Hover effect */
+.contact-form .send-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #5a67d8, #6b46c1);
 }
 
 /* Footer */
@@ -646,6 +949,7 @@ footer {
     }
 
     nav ul {
+        text-align: center;
         flex-direction: column;
         width: 100%;
         margin-top: 1rem;
